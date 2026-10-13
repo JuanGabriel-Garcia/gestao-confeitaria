@@ -1,0 +1,16 @@
+# Alternativa opcional: PostgreSQL em contêiner Docker (porta 5433 para não conflitar com o PostgreSQL local).
+services:
+  banco:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: confeitaria
+      POSTGRES_PASSWORD: confeitaria
+      POSTGRES_DB: confeitaria
+    ports:
+      - '5433:5432'
+    volumes:
+      - dados_confeitaria:/var/lib/postgresql/data
+
+volumes:
+  dados_confeitaria:

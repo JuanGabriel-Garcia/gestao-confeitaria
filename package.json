@@ -1,0 +1,19 @@
+{
+  "name": "gerenciamento-confeitaria",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sistema de precificação de receitas para confeitaria",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c magenta,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "db:init": "npm run db:init -w server",
+    "build": "npm run build -w server && npm run build -w client",
+    "start": "npm run start -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
